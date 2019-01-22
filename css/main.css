@@ -1093,7 +1093,7 @@ pre .javascript .function {
   background: transparent;
 }
 .header {
-  background: url("../image/myblog.jpg");
+  background: url("../image/stone.jpg");
 }
 .header-inner {
   position: relative;
@@ -1826,7 +1826,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7c333e;
+  background: #d29c33;
 }
 .links-of-blogroll {
   font-size: 13px;
