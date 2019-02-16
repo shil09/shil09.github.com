@@ -1273,7 +1273,7 @@ pre .javascript .function {
 .posts-expand {
   padding-top: 40px;
 }
-@media (max-width: 767px) {
+@media (max-width: 1080px) {
   .posts-expand {
     margin: 0 20px;
   }
@@ -1744,10 +1744,10 @@ pre .javascript .function {
   max-width: 120px;
   height: auto;
   border: 1px solid #eee;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  transition: 1.4s all;
+  border-radius: 80%;
+  -webkit-border-radius: 80%;
+  -moz-border-radius: 80%;
+  transition: 2.4s all;
 }
 .site-author-image:hover {
   -webkit-transform: rotate(360deg);
@@ -1835,7 +1835,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6c4b20;
+  background: #32965d;
 }
 .links-of-blogroll {
   font-size: 13px;
