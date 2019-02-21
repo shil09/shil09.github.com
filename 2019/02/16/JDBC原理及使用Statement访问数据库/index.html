@@ -394,7 +394,58 @@
 <li><p>常见数据库驱动：<br><img src="http://static.zybuluo.com/shil09/cizyt6vu17g9n92oncp2rig3/image_1d44fad3d1kt541j8h411vcfpq16.png" alt="image_1d44fad3d1kt541j8h411vcfpq16.png-88.6kB"><br>另外还需要知道连接字符串以及用户名和密码，如下图所示：<br><img src="http://static.zybuluo.com/shil09/qlaf8f4k2wf6ecx2qusbwqo6/image_1d44fi0es1ib8gio3t7tg312sn1j.png" alt="image_1d44fi0es1ib8gio3t7tg312sn1j.png-73.7kB"></p>
 </li>
 <li><p>java连接Oracle具体代码示例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> jdbc;</span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;</span><br><span class="line"><span class="keyword">public</span>  <span class="class"><span class="keyword">class</span> <span class="title">JDBCproject</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String URL = <span class="string">"jdbc:oracle:thin:@localhost:1521:STONE"</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String USERNAME = <span class="string">"scott"</span>;<span class="comment">//用户名</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String PWD = <span class="string">"XXX1234"</span>;<span class="comment">//密码</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> <span class="comment">//数据库的增删改</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		Connection connection=<span class="keyword">null</span>;</span><br><span class="line">		Statement stmt=<span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="comment">//导入驱动，加载具体的驱动类</span></span><br><span class="line">		Class.forName(<span class="string">"oracle.jdbc.OracleDriver"</span>);<span class="comment">//加载具体的驱动类</span></span><br><span class="line">		<span class="comment">//与数据库建立连接</span></span><br><span class="line">	 connection =	DriverManager.getConnection(URL,USERNAME,PWD);</span><br><span class="line">		<span class="comment">//发送SQL，执行(增删改、查)</span></span><br><span class="line">	stmt = connection.createStatement();</span><br><span class="line">	String sql = <span class="string">"insert into myemp(empno,ename) values (2345,'shi')"</span>;</span><br><span class="line"><span class="comment">//执行SQL</span></span><br><span class="line">	<span class="keyword">int</span> count = stmt.executeUpdate(sql);</span><br><span class="line">	<span class="comment">//处理结果</span></span><br><span class="line">	<span class="keyword">if</span>(count&gt;<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(<span class="string">"操作成功！"</span>);	</span><br><span class="line">	&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">catch</span> (Exception e)</span><br><span class="line">		&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;		</span><br><span class="line">		<span class="keyword">finally</span> &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="keyword">if</span>(stmt !=<span class="keyword">null</span>) stmt.close();<span class="comment">//对象.方法</span></span><br><span class="line">				<span class="keyword">if</span>(connection !=<span class="keyword">null</span>) connection.close();</span><br><span class="line">			&#125;<span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">	update();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package jdbc;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+public  class JDBCproject 
+{
+ private static final String URL = &quot;jdbc:oracle:thin:@localhost:1521:STONE&quot;;
+ private static final String USERNAME = &quot;scott&quot;;//用户名
+ private static final String PWD = &quot;XXX1234&quot;;//密码
+ public static void update() //数据库的增删改
+ {
+     Connection connection=null;
+     Statement stmt=null;
+     try {
+     //导入驱动，加载具体的驱动类
+     Class.forName(&quot;oracle.jdbc.OracleDriver&quot;);//加载具体的驱动类
+     //与数据库建立连接
+  connection =    DriverManager.getConnection(URL,USERNAME,PWD);
+     //发送SQL，执行(增删改、查)
+ stmt = connection.createStatement();
+ String sql = &quot;insert into myemp(empno,ename) values (2345,&#39;shi&#39;)&quot;;
+//执行SQL
+ int count = stmt.executeUpdate(sql);
+ //处理结果
+ if(count&gt;0)
+ {
+     System.out.println(&quot;操作成功！&quot;);    
+ }
+     } catch (ClassNotFoundException e) {
+         e.printStackTrace();
+     }catch (SQLException e) {
+         e.printStackTrace();
+     }catch (Exception e)
+     {
+         e.printStackTrace();
+     }        
+     finally {
+         try {
+             if(stmt !=null) stmt.close();//对象.方法
+             if(connection !=null) connection.close();
+         }catch (SQLException e) {
+             e.printStackTrace();
+         }
+     }
+ }
+ public static void main(String[] args)
+ {
+ update();
+ }
+}
+</code></pre>
 </li>
 </ol>
 
