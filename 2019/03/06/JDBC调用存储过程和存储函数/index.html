@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="linux,">
 
 
 
@@ -80,6 +80,7 @@
 
 
 <meta name="description" content="JDBC调用存储过程和存储函数. 一、复习jdbc jdbc总结 CallableStatement:调用存储过程、存储函数">
+<meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JDBC调用存储过程和存储函数">
 <meta property="og:url" content="https://shil09.github.io/2019/03/06/JDBC调用存储过程和存储函数/index.html">
@@ -87,7 +88,7 @@
 <meta property="og:description" content="JDBC调用存储过程和存储函数. 一、复习jdbc jdbc总结 CallableStatement:调用存储过程、存储函数">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://static.zybuluo.com/shil09/drksyn2mc6i36lnw75s3xi3u/image_1d58c29vi1o7mjiu1p5l7u3dlm9.png">
-<meta property="og:updated_time" content="2019-03-06T02:34:06.634Z">
+<meta property="og:updated_time" content="2019-03-06T02:59:02.079Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDBC调用存储过程和存储函数">
 <meta name="twitter:description" content="JDBC调用存储过程和存储函数. 一、复习jdbc jdbc总结 CallableStatement:调用存储过程、存储函数">
@@ -384,12 +385,18 @@
     
 
     
-
+ 
     
 
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          
+        </div>
       
 
       
@@ -501,7 +508,25 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
             
 
           </nav>
@@ -516,7 +541,35 @@
           
           
 
-          
+          <div id="days"></div>
+
+<script language="javascript">
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("05/27/2017 15:00:00");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+--------------------- 
+
 
         </div>
       </section>
@@ -785,9 +838,10 @@
   
 
  
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</body>
 
- <!-- 页面点击小红心 -->
+<!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js"></script>
+<!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
-
 </html>
