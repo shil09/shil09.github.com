@@ -79,21 +79,24 @@
 
 
 
-<meta name="description" content="安装步骤  下载安装包[下载地址]：(https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html) 解压两个压缩包到同一目录，即”database”，然后单击解压目录下的”setup.exe”文件，如下图所示： 执行安装程序后会出现如下的命令提示行 选是，对结果没影响">
+<meta name="description" content="shell重定向和管道操作 一、命令别名  命令别名二、 重定向 基本操作符 语法实例      和&amp;gt;&amp;gt;区别 重定向后覆盖原文件内容，&amp;gt;&amp;gt;追加原文件内容   输出#bash if.sh 1&amp;gt;if.txt 2&amp;gt;&amp;amp;1 #bash if.sh 1&amp;gt;&amp;gt;if.txt 2&amp;gt;&amp;gt;&amp;amp;1 ##正确和错误日志都输出到if.txt 三、管道操作符">
 <meta property="og:type" content="article">
-<meta property="og:title" content="windows 10 安装Oracle，细数一路走过的坑">
-<meta property="og:url" content="https://shil09.github.io/2019/01/11/windows-10-安装Oracle，细数一路走过的坑/index.html">
+<meta property="og:title" content="shell重定向和管道操作">
+<meta property="og:url" content="https://shil09.github.io/2019/04/23/shell重定向和管道操作/index.html">
 <meta property="og:site_name" content="Mr.Stone">
-<meta property="og:description" content="安装步骤  下载安装包[下载地址]：(https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html) 解压两个压缩包到同一目录，即”database”，然后单击解压目录下的”setup.exe”文件，如下图所示： 执行安装程序后会出现如下的命令提示行 选是，对结果没影响">
+<meta property="og:description" content="shell重定向和管道操作 一、命令别名  命令别名二、 重定向 基本操作符 语法实例      和&amp;gt;&amp;gt;区别 重定向后覆盖原文件内容，&amp;gt;&amp;gt;追加原文件内容   输出#bash if.sh 1&amp;gt;if.txt 2&amp;gt;&amp;amp;1 #bash if.sh 1&amp;gt;&amp;gt;if.txt 2&amp;gt;&amp;gt;&amp;amp;1 ##正确和错误日志都输出到if.txt 三、管道操作符">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://static.oschina.net/uploads/img/201705/20224827_lzZk.png">
-<meta property="og:image" content="https://static.oschina.net/uploads/img/201705/20224827_tQRe.jpg">
-<meta property="og:image" content="https://static.oschina.net/uploads/space/2017/0520/224509_UPaP_3337579.png">
-<meta property="og:updated_time" content="2019-01-11T08:13:17.975Z">
+<meta property="og:image" content="http://static.zybuluo.com/shil09/5155a365bxwow9aupgbjtvw6/image_1d94ojhtl14b1q9761desj5t9.png">
+<meta property="og:image" content="http://static.zybuluo.com/shil09/so2t4plgr512lkauecubc57s/image_1d94oppa1105c1cs012mk1k3p5ktm.png">
+<meta property="og:image" content="http://static.zybuluo.com/shil09/z48e78sjfu4g5o8lfj8u0q55/image_1d94p02mhp7p114pcfj375dh413.png">
+<meta property="og:image" content="http://static.zybuluo.com/shil09/d6vz606k0bj8xcjo23y371im/image_1d94p4jo1ca5sgn18utf671d4m20.png">
+<meta property="og:image" content="http://static.zybuluo.com/shil09/mzfri7v64bmuj1vrweaaoc4m/image_1d94pos2f1fu3e645q3tm126e2d.png">
+<meta property="og:image" content="http://static.zybuluo.com/shil09/yqom5u5ik9vs179z68ndwcn9/image_1d94q0f8o1cnr2c21kop1ku8c3h4n.png">
+<meta property="og:updated_time" content="2019-04-23T10:06:22.678Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="windows 10 安装Oracle，细数一路走过的坑">
-<meta name="twitter:description" content="安装步骤  下载安装包[下载地址]：(https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html) 解压两个压缩包到同一目录，即”database”，然后单击解压目录下的”setup.exe”文件，如下图所示： 执行安装程序后会出现如下的命令提示行 选是，对结果没影响">
-<meta name="twitter:image" content="https://static.oschina.net/uploads/img/201705/20224827_lzZk.png">
+<meta name="twitter:title" content="shell重定向和管道操作">
+<meta name="twitter:description" content="shell重定向和管道操作 一、命令别名  命令别名二、 重定向 基本操作符 语法实例      和&amp;gt;&amp;gt;区别 重定向后覆盖原文件内容，&amp;gt;&amp;gt;追加原文件内容   输出#bash if.sh 1&amp;gt;if.txt 2&amp;gt;&amp;amp;1 #bash if.sh 1&amp;gt;&amp;gt;if.txt 2&amp;gt;&amp;gt;&amp;amp;1 ##正确和错误日志都输出到if.txt 三、管道操作符">
+<meta name="twitter:image" content="http://static.zybuluo.com/shil09/5155a365bxwow9aupgbjtvw6/image_1d94ojhtl14b1q9761desj5t9.png">
 
 
 
@@ -123,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://shil09.github.io/2019/01/11/windows-10-安装Oracle，细数一路走过的坑/">
+  <link rel="canonical" href="https://shil09.github.io/2019/04/23/shell重定向和管道操作/">
 
 
 
 
 
-  <title>windows 10 安装Oracle，细数一路走过的坑 | Mr.Stone</title>
+  <title>shell重定向和管道操作 | Mr.Stone</title>
   
 
 
@@ -306,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://shil09.github.io/2019/01/11/windows-10-安装Oracle，细数一路走过的坑/">
+    <link itemprop="mainEntityOfPage" href="https://shil09.github.io/2019/04/23/shell重定向和管道操作/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="stone">
@@ -323,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">windows 10 安装Oracle，细数一路走过的坑</h1>
+          <h1 class="post-title" itemprop="name headline">shell重定向和管道操作</h1>
         
 
         <div class="post-meta">
@@ -335,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-11T10:20:15+08:00">
-                2019-01-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-23T18:06:03+08:00">
+                2019-04-23
               </time>
             
 
@@ -373,13 +376,27 @@
       
 
       
-        <p>安装步骤</p>
+        <h1 id="shell重定向和管道操作"><a href="#shell重定向和管道操作" class="headerlink" title="shell重定向和管道操作"></a>shell重定向和管道操作</h1><hr>
+<p>一、命令别名</p>
 <ol>
-<li>下载安装包<br>[下载地址]：(<a href="https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html</a>)</li>
-<li>解压两个压缩包到同一目录，即”database”，然后单击解压目录下的”setup.exe”文件，如下图所示：<br><img src="https://static.oschina.net/uploads/img/201705/20224827_lzZk.png" alt=" "></li>
-<li><p>执行安装程序后会出现如下的命令提示行<br><img src="https://static.oschina.net/uploads/img/201705/20224827_tQRe.jpg" alt=" "></p>
-<p><img src="https://static.oschina.net/uploads/space/2017/0520/224509_UPaP_3337579.png" alt=" "><br>选是，对结果没影响</p>
+<li>命令别名<br><img src="http://static.zybuluo.com/shil09/5155a365bxwow9aupgbjtvw6/image_1d94ojhtl14b1q9761desj5t9.png" alt="image_1d94ojhtl14b1q9761desj5t9.png-64.2kB"><br>二、 重定向</li>
+<li>基本操作符<br><img src="http://static.zybuluo.com/shil09/so2t4plgr512lkauecubc57s/image_1d94oppa1105c1cs012mk1k3p5ktm.png" alt="image_1d94oppa1105c1cs012mk1k3p5ktm.png-148.5kB"></li>
+<li>语法实例<br><img src="http://static.zybuluo.com/shil09/z48e78sjfu4g5o8lfj8u0q55/image_1d94p02mhp7p114pcfj375dh413.png" alt="image_1d94p02mhp7p114pcfj375dh413.png-29.7kB"></li>
+</ol>
+<hr>
+<p><img src="http://static.zybuluo.com/shil09/d6vz606k0bj8xcjo23y371im/image_1d94p4jo1ca5sgn18utf671d4m20.png" alt="image_1d94p4jo1ca5sgn18utf671d4m20.png-31.5kB"></p>
+<ol start="3">
+<li><blockquote>
+<p>和&gt;&gt;区别</p>
+<pre><code>重定向后覆盖原文件内容，&gt;&gt;追加原文件内容
+</code></pre></blockquote>
 </li>
+<li>输出<pre><code>#bash if.sh 1&gt;if.txt 2&gt;&amp;1
+#bash if.sh 1&gt;&gt;if.txt 2&gt;&gt;&amp;1
+##正确和错误日志都输出到if.txt
+</code></pre>三、管道操作符</li>
+<li>管道<br><img src="http://static.zybuluo.com/shil09/mzfri7v64bmuj1vrweaaoc4m/image_1d94pos2f1fu3e645q3tm126e2d.png" alt="image_1d94pos2f1fu3e645q3tm126e2d.png-90.4kB"></li>
+<li>实例<br><img src="http://static.zybuluo.com/shil09/yqom5u5ik9vs179z68ndwcn9/image_1d94q0f8o1cnr2c21kop1ku8c3h4n.png" alt="image_1d94q0f8o1cnr2c21kop1ku8c3h4n.png-204.5kB"></li>
 </ol>
 
       
@@ -405,8 +422,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/07/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2019/04/23/安装完带图形界面的CentOS7/" rel="next" title="安装完带图形界面的CentOS7">
+                <i class="fa fa-chevron-left"></i> 安装完带图形界面的CentOS7
               </a>
             
           </div>
@@ -414,10 +431,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/16/使用JDBC切换数据库/" rel="prev" title="使用JDBC切换数据库">
-                使用JDBC切换数据库 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -469,6 +482,15 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
       
        <!-- music -->
   <div>
@@ -477,7 +499,7 @@
        
   </div>
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -567,6 +589,22 @@ show_date_time();
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#shell重定向和管道操作"><span class="nav-number">1.</span> <span class="nav-text">shell重定向和管道操作</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
