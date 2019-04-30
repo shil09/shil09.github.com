@@ -79,16 +79,25 @@
 
 
 
-<meta name="description" content="石头写字的地方">
-<meta property="og:type" content="website">
+<meta name="description" content="shell文件权限和脚本执行 一、认识权限和脚本管理 用户权限 用户管理  二、chmod权限 分配权限 acl 权限细化 sudo  三、执行shell脚本的方式1. bash test.sh  ##sh test.sh    #不需要写解析器    #不需要给脚本设置执行权限   2. ./test.sh    #需要写解析器    #需要写脚本设置执行权限 一篇更详细的文章https://w">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Mr.Stone">
-<meta property="og:url" content="https://shil09.github.io/archives/2019/index.html">
+<meta property="og:url" content="https://shil09.github.io/2019/04/30/acl和sudo权限/index.html">
 <meta property="og:site_name" content="Mr.Stone">
-<meta property="og:description" content="石头写字的地方">
+<meta property="og:description" content="shell文件权限和脚本执行 一、认识权限和脚本管理 用户权限 用户管理  二、chmod权限 分配权限 acl 权限细化 sudo  三、执行shell脚本的方式1. bash test.sh  ##sh test.sh    #不需要写解析器    #不需要给脚本设置执行权限   2. ./test.sh    #需要写解析器    #需要写脚本设置执行权限 一篇更详细的文章https://w">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://static.zybuluo.com/shil09/2z5rvuz49q4wy4kmtmr5xw3k/image_1d994g7bl1ls21c3pqtlf611vkf9.png">
+<meta property="og:image" content="http://static.zybuluo.com/shil09/8qmfm60vopicpiutql7xvkso/image_1d994milg15so1k7f146kr4j82m.png">
+<meta property="og:image" content="http://static.zybuluo.com/shil09/umyfoseeqaehovx0m6v1fae3/image_1d995kh761cqs1chvi6o13ep18tm13.png">
+<meta property="og:image" content="http://static.zybuluo.com/shil09/l9xzsx791vt0698z2i7qh3xr/image_1d995sg741ritesor73citbvb2v.png">
+<meta property="og:image" content="http://static.zybuluo.com/shil09/mr2m3to2fp6ehdhy4gdazhly/image_1d996g82d1jkh1t4k3mqg7mcea3c.png">
+<meta property="og:image" content="http://static.zybuluo.com/shil09/v8wjz13mjat4om8u68gsk8ny/image_1d997ie0q1ii2881m8k1ae1lps4p.png">
+<meta property="og:image" content="http://static.zybuluo.com/shil09/bzw34m0wv9deq5hrp1jfj0g0/image_1d9986ukg1s9s15cj1vvlq6q1s0m66.png">
+<meta property="og:updated_time" content="2019-04-30T02:25:57.081Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mr.Stone">
-<meta name="twitter:description" content="石头写字的地方">
+<meta name="twitter:description" content="shell文件权限和脚本执行 一、认识权限和脚本管理 用户权限 用户管理  二、chmod权限 分配权限 acl 权限细化 sudo  三、执行shell脚本的方式1. bash test.sh  ##sh test.sh    #不需要写解析器    #不需要给脚本设置执行权限   2. ./test.sh    #需要写解析器    #需要写脚本设置执行权限 一篇更详细的文章https://w">
+<meta name="twitter:image" content="http://static.zybuluo.com/shil09/2z5rvuz49q4wy4kmtmr5xw3k/image_1d994g7bl1ls21c3pqtlf611vkf9.png">
 
 
 
@@ -118,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://shil09.github.io/archives/2019/">
+  <link rel="canonical" href="https://shil09.github.io/2019/04/30/acl和sudo权限/">
 
 
 
 
 
-  <title>归档 | Mr.Stone</title>
+  <title> | Mr.Stone</title>
   
 
 
@@ -143,7 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>   
         <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -287,390 +296,158 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 目前共计 40 篇日志。 继续努力。
-      </span>
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shil09.github.io/2019/04/30/acl和sudo权限/">
 
-      
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="stone">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/stone.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mr.Stone">
+    </span>
+
+    
+      <header class="post-header">
 
         
         
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-30T10:25:57+08:00">
+                2019-04-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/30/acl和sudo权限/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-30T10:25:57+08:00" content="2019-04-30">
-          04-30
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/24/linux常用文件备份命令tar和cp/" itemprop="url">
-              
-                <span itemprop="name">linux常用文件备份命令tar和cp</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-24T09:36:52+08:00" content="2019-04-24">
-          04-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/23/shell重定向和管道操作/" itemprop="url">
-              
-                <span itemprop="name">shell重定向和管道操作</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-23T18:06:03+08:00" content="2019-04-23">
-          04-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h1 id="shell文件权限和脚本执行"><a href="#shell文件权限和脚本执行" class="headerlink" title="shell文件权限和脚本执行"></a>shell文件权限和脚本执行</h1><hr>
+<h2 id="一、认识权限和脚本管理"><a href="#一、认识权限和脚本管理" class="headerlink" title="一、认识权限和脚本管理"></a>一、认识权限和脚本管理</h2><ol>
+<li>用户权限<br><img src="http://static.zybuluo.com/shil09/2z5rvuz49q4wy4kmtmr5xw3k/image_1d994g7bl1ls21c3pqtlf611vkf9.png" alt="image_1d994g7bl1ls21c3pqtlf611vkf9.png-160.3kB"></li>
+<li>用户管理<br><img src="http://static.zybuluo.com/shil09/8qmfm60vopicpiutql7xvkso/image_1d994milg15so1k7f146kr4j82m.png" alt="image_1d994milg15so1k7f146kr4j82m.png-89.2kB"></li>
+</ol>
+<h2 id="二、chmod权限"><a href="#二、chmod权限" class="headerlink" title="二、chmod权限"></a>二、chmod权限</h2><ol>
+<li>分配权限<br><img src="http://static.zybuluo.com/shil09/umyfoseeqaehovx0m6v1fae3/image_1d995kh761cqs1chvi6o13ep18tm13.png" alt="image_1d995kh761cqs1chvi6o13ep18tm13.png-82.5kB"></li>
+<li>acl<br><img src="http://static.zybuluo.com/shil09/l9xzsx791vt0698z2i7qh3xr/image_1d995sg741ritesor73citbvb2v.png" alt="image_1d995sg741ritesor73citbvb2v.png-90.4kB"></li>
+<li>权限细化<br><img src="http://static.zybuluo.com/shil09/mr2m3to2fp6ehdhy4gdazhly/image_1d996g82d1jkh1t4k3mqg7mcea3c.png" alt="image_1d996g82d1jkh1t4k3mqg7mcea3c.png-130kB"><br><img src="http://static.zybuluo.com/shil09/v8wjz13mjat4om8u68gsk8ny/image_1d997ie0q1ii2881m8k1ae1lps4p.png" alt="image_1d997ie0q1ii2881m8k1ae1lps4p.png-177.2kB"></li>
+<li>sudo<br><img src="http://static.zybuluo.com/shil09/bzw34m0wv9deq5hrp1jfj0g0/image_1d9986ukg1s9s15cj1vvlq6q1s0m66.png" alt="image_1d9986ukg1s9s15cj1vvlq6q1s0m66.png-183.1kB"></li>
+</ol>
+<h2 id="三、执行shell脚本的方式"><a href="#三、执行shell脚本的方式" class="headerlink" title="三、执行shell脚本的方式"></a>三、执行shell脚本的方式</h2><pre><code>1. bash test.sh  ##sh test.sh
+   #不需要写解析器
+   #不需要给脚本设置执行权限  
+2. ./test.sh
+   #需要写解析器
+   #需要写脚本设置执行权限
+</code></pre><h2 id="一篇更详细的文章"><a href="#一篇更详细的文章" class="headerlink" title="一篇更详细的文章"></a>一篇更详细的文章</h2><p><a href="https://www.linuxidc.com/Linux/2016-11/137260.htm" target="_blank" rel="noopener">https://www.linuxidc.com/Linux/2016-11/137260.htm</a></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/23/安装完带图形界面的CentOS7/" itemprop="url">
-              
-                <span itemprop="name">安装完带图形界面的CentOS7</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-23T17:18:51+08:00" content="2019-04-23">
-          04-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/22/如何用putty进入VMware虚拟机/" itemprop="url">
-              
-                <span itemprop="name">如何用putty进入VMware虚拟机</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-22T17:22:22+08:00" content="2019-04-22">
-          04-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/22/linux远程管理/" itemprop="url">
-              
-                <span itemprop="name">linux远程管理</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-22T10:48:21+08:00" content="2019-04-22">
-          04-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/22/IPtables防火墙基础/" itemprop="url">
-              
-                <span itemprop="name">IPtables防火墙基础</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-22T10:05:54+08:00" content="2019-04-22">
-          04-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/22/SELinux安全系统基础/" itemprop="url">
-              
-                <span itemprop="name">SELinux安全系统基础</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-22T09:21:45+08:00" content="2019-04-22">
-          04-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/18/高级网络/" itemprop="url">
-              
-                <span itemprop="name">高级网络</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-18T09:18:51+08:00" content="2019-04-18">
-          04-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/17/使用RAID提升磁盘速度及冗余性/" itemprop="url">
-              
-                <span itemprop="name">使用RAID提升磁盘速度及冗余性</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-17T19:21:57+08:00" content="2019-04-17">
-          04-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+ 
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/24/linux常用文件备份命令tar和cp/" rel="next" title="linux常用文件备份命令tar和cp">
+                <i class="fa fa-chevron-left"></i> linux常用文件备份命令tar和cp
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/page/4/">4</a><a class="extend next" rel="next" href="/archives/2019/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -678,6 +455,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -698,6 +479,15 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
       
        <!-- music -->
   <div>
@@ -706,7 +496,7 @@
        
   </div>
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -796,6 +586,22 @@ show_date_time();
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#shell文件权限和脚本执行"><span class="nav-number">1.</span> <span class="nav-text">shell文件权限和脚本执行</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、认识权限和脚本管理"><span class="nav-number">1.1.</span> <span class="nav-text">一、认识权限和脚本管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、chmod权限"><span class="nav-number">1.2.</span> <span class="nav-text">二、chmod权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、执行shell脚本的方式"><span class="nav-number">1.3.</span> <span class="nav-text">三、执行shell脚本的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一篇更详细的文章"><span class="nav-number">1.4.</span> <span class="nav-text">一篇更详细的文章</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -977,6 +783,10 @@ show_date_time();
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
